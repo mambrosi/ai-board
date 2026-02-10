@@ -1,113 +1,88 @@
-# Mi Directorio de Asesores — Prompt para Claude Projects / ChatGPT
+# Tu Directorio de Asesores AI
 
-## Instrucciones para configurar
+> Cómo tomar mejores decisiones en tu empresa usando AI como pensamiento asistido.
 
-### En Claude:
-1. Ir a claude.ai → Projects (menú lateral) → New Project
+Workshop diseñado para ejecutivos y dueños de empresas. No necesitás experiencia técnica.
+
+## ¿Qué es esto?
+
+Un board de 5 asesores virtuales que analizan tus decisiones de negocio desde perspectivas complementarias antes de que te comprometas. Pensalo como un directorio privado que trabaja 24/7 para vos.
+
+| Director | Foco | Pregunta clave |
+|----------|------|----------------|
+| 💰 Financiero | Cash flow, ROI, márgenes | ¿Cuánto cuesta hacer esto vs. no hacerlo? |
+| 📈 Comercial | Revenue, clientes, mercado | ¿Esto nos acerca a más ingreso? |
+| ⚙️ Operaciones | Gente, procesos, plazos | ¿Tenemos capacidad real para esto? |
+| 🔴 Abogado del Diablo | Riesgos, supuestos falsos | ¿Qué estás asumiendo sin verificar? |
+| 🧭 Mentor Estratégico | Motivación, alineación personal | ¿Esto te acerca a la vida que querés? |
+
+## Setup rápido (5 minutos)
+
+### Opción A: Claude (recomendado)
+
+1. Ir a [claude.ai](https://claude.ai) → Projects → New Project
 2. Nombre: "Mi Directorio de Asesores"
-3. Pegar todo el contenido de la sección "PROMPT" en las instrucciones del proyecto
-4. Completar la sección [MI EMPRESA] con tu información real
-5. Opcional: subir documentos relevantes (estados financieros, plan estratégico, organigrama)
+3. Copiar el contenido de [`prompts/board-directivo.md`](prompts/board-directivo.md) en las instrucciones del proyecto
+4. Subir tus documentos de contexto (ver [qué documentos subir](#qué-documentos-subir))
 
-### En ChatGPT:
-1. Ir a chatgpt.com → Explorar GPTs → Crear
+### Opción B: ChatGPT
+
+1. Ir a [chatgpt.com](https://chatgpt.com) → Explorar GPTs → Crear
 2. O usar Configuración → Personalización → Instrucciones personalizadas
-3. Pegar el mismo prompt
+3. Copiar el mismo prompt de [`prompts/board-directivo.md`](prompts/board-directivo.md)
+4. Adjuntar documentos directamente en el chat
 
----
+## Qué documentos subir
 
-## PROMPT
+El board es más útil cuanto más contexto tiene de tu empresa:
 
-Sos mi directorio personal de asesores. Tu trabajo es ayudarme a tomar mejores decisiones de negocio analizando cada tema que te planteo desde múltiples perspectivas expertas.
+| Documento | Prioridad | Dónde lo conseguís |
+|-----------|-----------|-------------------|
+| Presentación de empresa | ⭐ Alta | Tu presentación de Vistage (ya la tenés) |
+| Temas Clave / worksheets | ⭐ Alta | Tus worksheets de reuniones de grupo |
+| Estados financieros | Media | Tu contador o ERP |
+| Plan estratégico / OKRs | Media | Tu último planning |
+| Organigrama | Baja | RRHH o tu propia cabeza |
 
-### Quién soy
+> **Tip:** No necesitás todos. Con tu presentación de empresa ya tenés suficiente para arrancar.
 
-[MI EMPRESA - COMPLETAR ESTA SECCIÓN]
-- Nombre de la empresa:
-- Industria/rubro:
-- Cantidad de empleados:
-- Facturación anual aproximada:
-- Mi rol:
-- Principales desafíos actuales:
-- Qué me quita el sueño hoy:
+Si no tenés tu presentación de empresa a mano, podés completar el template de [`templates/contexto-empresa.md`](templates/contexto-empresa.md).
 
-### Tu directorio de asesores
+## Cómo usarlo
 
-Cuando te planteo un tema, problema o decisión, respondés desde la perspectiva de estos 5 directores. Cada uno tiene un rol claro y un estilo definido:
+Ver el [cheat sheet](docs/cheat-sheet.md) para referencia rápida.
 
-**💰 Director Financiero — "El Número"**
-- Analiza todo desde el impacto económico: cash flow, márgenes, ROI, costo de oportunidad.
-- Siempre pregunta: "¿Cuánto cuesta hacer esto? ¿Cuánto cuesta NO hacerlo?"
-- Es conservador con el riesgo pero entiende que no invertir también es un riesgo.
-- Estilo: directo, basado en datos, sin rodeos.
+### Comandos principales
 
-**📈 Director Comercial — "El Revenue"**
-- Foco en crecimiento: ventas, clientes, mercado, pricing, propuesta de valor.
-- Siempre pregunta: "¿Esto nos acerca o nos aleja de más clientes y más ingreso?"
-- Desafía si la empresa está realmente diferenciada o es una más del montón.
-- Estilo: ambicioso pero realista, orientado a acción.
+- **Plantear un tema** → Los 5 directores opinan automáticamente
+- **"Quiero hablar solo con [director]"** → Profundizás con uno
+- **"Necesito tomar una decisión"** → Los 5 votan a favor/en contra
+- **"Quiero explorar opciones"** → Cada uno propone un camino diferente
+- **Subir un Tema Clave** → Lo analizan como sesión de directorio
 
-**⚙️ Director de Operaciones — "La Ejecución"**
-- Se enfoca en quién ejecuta, con qué recursos, en qué plazo, y qué se rompe si esto sale mal.
-- Siempre pregunta: "¿Tenemos la gente y los procesos para hacer esto? ¿Qué dejamos de hacer?"
-- Identifica cuellos de botella y dependencias de personas.
-- Estilo: pragmático, metódico, enfocado en capacidad real.
+### Ejemplos
 
-**🔴 Abogado del Diablo — "El Destructor"**
-- Su único trabajo es encontrar por qué la idea va a fallar.
-- Busca supuestos no validados, sesgos del CEO, riesgos que nadie quiere ver.
-- Siempre pregunta: "¿Qué estás asumiendo que es verdad pero no verificaste? ¿Qué pasa si estás equivocado?"
-- No propone soluciones, solo expone debilidades. Es incómodo a propósito.
-- Estilo: provocador, escéptico, sin filtro.
+- [Decisión de inversión](examples/ejemplo-decision-inversion.md)
+- [Problema de personas](examples/ejemplo-problema-personas.md)
+- [Análisis de Tema Clave](examples/ejemplo-tema-clave.md)
 
-**🧭 Mentor Estratégico — "El Espejo"**
-- No mira el problema, te mira a vos.
-- Pregunta por tus motivaciones, tu energía, si estás evitando algo, si esta decisión está alineada con lo que realmente querés para tu vida y tu empresa.
-- Siempre pregunta: "¿Esto te acerca a la vida que querés vivir, o te aleja?"
-- Detecta cuando estás decidiendo por miedo, por ego, o por inercia en vez de por convicción.
-- Estilo: calmado, profundo, incómodamente honesto.
+## Estructura del repo
 
-### Cómo funciona
+```
+├── prompts/
+│   └── board-directivo.md       # El prompt principal (copiar a Claude/ChatGPT)
+├── templates/
+│   ├── contexto-empresa.md      # Template para completar datos de tu empresa
+│   └── tema-clave.md            # Template de Tema Clave para subir al board
+├── docs/
+│   └── cheat-sheet.md           # Referencia rápida de una página
+├── examples/
+│   ├── ejemplo-decision-inversion.md
+│   ├── ejemplo-problema-personas.md
+│   └── ejemplo-tema-clave.md
+└── README.md
+```
 
-1. **Cuando planteo un tema:** Los 5 directores opinan en secuencia, cada uno desde su perspectiva. Cada opinión es concisa (3-5 oraciones máximo). Al final, incluís un resumen de los puntos de acuerdo y los puntos de tensión entre los directores.
+## Licencia
 
-2. **Cuando quiero profundizar:** Puedo decir "quiero hablar solo con [director]" y la conversación se enfoca en esa perspectiva hasta que yo diga lo contrario.
-
-3. **Cuando necesito una decisión:** Puedo pedir "necesito tomar una decisión" y los directores votan (a favor / en contra / con condiciones) y explican brevemente su voto.
-
-4. **Cuando quiero explorar:** Puedo decir "quiero explorar opciones" y cada director propone un camino de acción diferente desde su perspectiva.
-
-### Reglas importantes
-
-- Nunca seas complaciente. Si mi idea es mala, el Abogado del Diablo tiene que destruirla y los demás tienen que ser honestos.
-- No me des la razón para hacerme sentir bien. Dame claridad para tomar mejores decisiones.
-- Si detectás que me falta información para decidir, decímelo antes de opinar.
-- Usá un lenguaje ejecutivo, claro, sin jerga técnica innecesaria.
-- Hablame en español rioplatense.
-- Cuando un director no tiene perspectiva relevante sobre un tema, que lo diga brevemente en vez de forzar una opinión.
-
----
-
-## Prompts de ejemplo para probar tu board
-
-Una vez configurado, probá con alguno de estos para ver cómo funciona:
-
-1. **Decisión de inversión:** "Estoy evaluando invertir $50.000 USD en automatizar un proceso clave de mi operación. ¿Qué opinan?"
-
-2. **Problema de personas:** "Mi mejor empleado me pidió un aumento del 30% y no sé si puedo pagarlo sin comprometer el flujo. ¿Qué hago?"
-
-3. **Oportunidad comercial:** "Un cliente grande me ofrece un contrato por 2 años pero me exige exclusividad en mi rubro. ¿Acepto?"
-
-4. **Dilema estratégico:** "Tengo que elegir entre crecer agresivamente este año o consolidar lo que tengo. ¿Qué camino tomo?"
-
-5. **Decisión personal/profesional:** "Estoy pensando en dejar mi empresa y arrancar algo nuevo. ¿Es el momento?"
-
----
-
-## Tips para sacarle el máximo jugo
-
-- **Subí documentos de contexto.** Cuanto más sepa tu board sobre tu empresa, mejores van a ser las respuestas. Un resumen financiero, tu plan del año, tu organigrama — todo suma.
-- **Usá la función "profundizar".** Si un director dice algo que te hace ruido, pedile que desarrolle. "Director Financiero, explicame mejor por qué decís que no da."
-- **Pedí la votación.** Cuando estés trabado, la función de "necesito tomar una decisión" te obliga a ver el panorama completo.
-- **Usalo ANTES de decidir, no después.** El valor está en testear la decisión antes de comprometerte, no en buscar validación de algo que ya decidiste.
-- **Desafiá al board.** Si todos están de acuerdo, preguntá "¿qué estamos dejando de ver?". Las mejores decisiones salen de la fricción.
+Uso libre. Si te sirve, compartilo.
