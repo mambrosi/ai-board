@@ -455,6 +455,61 @@
       font-size: 14px;
       color: var(--gray);
       line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .copy-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--amber-dim);
+      border: 1px solid rgba(232, 168, 56, 0.2);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amber);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(232, 168, 56, 0.18);
+      border-color: rgba(232, 168, 56, 0.35);
+    }
+
+    .copy-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 12px;
+      background: var(--green);
+      color: #0B0E11;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .copy-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--green);
+    }
+
+    .copy-btn.copied .copy-tooltip {
+      opacity: 1;
     }
 
     /* ═══════════════════════════════════════
@@ -598,8 +653,8 @@
         6 directores AI que ponen a prueba cada decisión desde finanzas, revenue, operaciones, personas, riesgo y estrategia. Antes de que te comprometas.
       </p>
       <div class="hero-ctas reveal reveal-delay-3">
-        <a href="../prompts/board.md" class="btn btn-primary">📋 Conseguí el prompt — gratis</a>
-        <a href="../examples/ejemplo-decision.md" class="btn btn-secondary">🧪 Velo en acción</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Conseguí el prompt — gratis</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/examples/ejemplo-decision.md" target="_blank" rel="noopener" class="btn btn-secondary">🧪 Velo en acción</a>
       </div>
     </div>
   </section>
@@ -696,7 +751,7 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <h4>Copiá el prompt</h4>
-            <p>Abrí <a href="../prompts/board.md">board.md</a>, copiá todo y pegalo en las instrucciones del proyecto.</p>
+            <p>Abrí <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener">board.md</a>, copiá todo y pegalo en las instrucciones del proyecto.</p>
           </div>
         </div>
 
@@ -733,26 +788,31 @@
         <div class="command-card reveal">
           <div class="command-trigger">Plantear un tema</div>
           <p class="command-desc">Los 6 directores opinan automáticamente desde su perspectiva.</p>
+          <button class="copy-btn" onclick="copyTemplate('topic-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
         </div>
 
         <div class="command-card reveal reveal-delay-1">
           <div class="command-trigger"><code>"Quiero hablar solo con [director]"</code></div>
           <p class="command-desc">Profundizás con un director específico hasta que digas lo contrario.</p>
+          <button class="copy-btn" onclick="copyTemplate('solo-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
         </div>
 
         <div class="command-card reveal reveal-delay-2">
           <div class="command-trigger"><code>"Necesito tomar una decisión"</code></div>
           <p class="command-desc">Los 6 votan: a favor, en contra, o con condiciones.</p>
+          <button class="copy-btn" onclick="copyTemplate('decision-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
         </div>
 
         <div class="command-card reveal reveal-delay-1">
           <div class="command-trigger"><code>"Quiero explorar opciones"</code></div>
           <p class="command-desc">Cada director propone un camino de acción diferente.</p>
+          <button class="copy-btn" onclick="copyTemplate('options-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
         </div>
 
         <div class="command-card reveal reveal-delay-2">
           <div class="command-trigger">Subir un Tema Clave</div>
           <p class="command-desc">Lo analizan como sesión de directorio: puntos ciegos, supuestos, riesgos.</p>
+          <button class="copy-btn" onclick="copyTemplate('keytopic-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
         </div>
 
       </div>
@@ -766,8 +826,8 @@
       <h2 class="section-title reveal">Dejá de decidir solo</h2>
       <p class="section-subtitle reveal reveal-delay-1">Tu próxima decisión es demasiado importante para una sola perspectiva.</p>
       <div class="cta-buttons reveal reveal-delay-2">
-        <a href="../prompts/board.md" class="btn btn-primary">📋 Armá tu directorio hoy</a>
-        <a href="../docs/guia-de-uso.md" class="btn btn-secondary">📖 Guía de inicio rápido</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Armá tu directorio hoy</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/docs/guia-de-uso.md" target="_blank" rel="noopener" class="btn btn-secondary">📖 Guía de inicio rápido</a>
       </div>
     </div>
   </section>
@@ -776,9 +836,9 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <span>Creado por <a href="https://linkedin.com/in/marcosambrosiortisi" target="_blank" rel="noopener">Marcos</a></span>
+        <span>Creado por <a href="https://www.linkedin.com/in/marcosambrosi/" target="_blank" rel="noopener">Marcos</a></span>
         <span class="footer-sep">·</span>
-        <a href="https://github.com/marcosambrosiortisi/ai-board" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/mambrosi/ai-board" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
@@ -798,6 +858,106 @@
     });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Copiar templates de prompts
+    const templates = {
+      'topic-es': `**Situación:** [¿Qué está pasando? En 2-3 oraciones.]
+
+**La decisión o problema:** [¿Qué necesitás resolver o decidir?]
+
+**Qué está en juego:** [¿Qué pasa si sale bien? ¿Qué pasa si sale mal?]
+
+**Lo que estoy pensando hacer:** [¿Hacia dónde te inclinás hoy?]
+
+**Lo que me frena:** [¿Qué duda, miedo o dato te tiene trabado?]`,
+
+      'solo-es': `Quiero hablar solo con [nombre del director].
+
+[Describí tu situación o pregunta acá.]`,
+
+      'decision-es': `Necesito tomar una decisión.
+
+[Describí la decisión que estás enfrentando y el contexto relevante.]`,
+
+      'options-es': `Quiero explorar opciones.
+
+[Describí la situación para la que querés explorar alternativas.]`,
+
+      'keytopic-es': `# TEMA CLAVE
+
+**MIEMBRO:**
+**FECHA:**
+**VALOR MONETARIO:**
+
+---
+
+## EL TEMA ES: ¿CÓMO HAGO PARA…?
+
+[Escribí tu problema o decisión como pregunta. Sé específico.]
+
+---
+
+## MI RESULTADO IDEAL
+*(próximos 3-6 meses)*
+
+1.
+2.
+3.
+
+---
+
+## ES IMPORTANTE O SIGNIFICATIVO PORQUE:
+
+**DINERO Y TIEMPO:**
+-
+
+**PERSONAS / EQUIPO:**
+-
+
+**REPUTACIÓN / MERCADO:**
+-
+
+**FUTURO:**
+-
+
+---
+
+## INFORMACIÓN RELEVANTE:
+
+[Todo lo que el board necesita saber para opinar bien: números, contexto, historia, relaciones, intentos anteriores, restricciones.]
+
+---
+
+## LO QUE PIENSO HACER:
+
+**CORTO PLAZO (próximas 2-4 semanas):**
+-
+
+**MEDIANO PLAZO (1-3 meses):**
+-
+
+**DESCARTADO:**
+-
+
+---
+
+## DÓNDE NECESITO AYUDA:
+
+1.
+2.
+3.`
+    };
+
+    function copyTemplate(key, btn) {
+      const text = templates[key];
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
   </script>
 
 </body>

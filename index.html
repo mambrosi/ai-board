@@ -455,6 +455,61 @@
       font-size: 14px;
       color: var(--gray);
       line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .copy-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      background: var(--amber-dim);
+      border: 1px solid rgba(232, 168, 56, 0.2);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amber);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(232, 168, 56, 0.18);
+      border-color: rgba(232, 168, 56, 0.35);
+    }
+
+    .copy-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 12px;
+      background: var(--green);
+      color: #0B0E11;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .copy-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--green);
+    }
+
+    .copy-btn.copied .copy-tooltip {
+      opacity: 1;
     }
 
     /* ═══════════════════════════════════════
@@ -598,8 +653,8 @@
         6 AI directors that stress-test every business decision from finance, revenue, operations, people, risk, and strategy. Before you commit.
       </p>
       <div class="hero-ctas reveal reveal-delay-3">
-        <a href="prompts/board.md" class="btn btn-primary">📋 Get the prompt — free</a>
-        <a href="examples/example-decision.md" class="btn btn-secondary">🧪 See it in action</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Get the prompt — free</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/examples/example-decision.md" target="_blank" rel="noopener" class="btn btn-secondary">🧪 See it in action</a>
       </div>
     </div>
   </section>
@@ -696,7 +751,7 @@
           <div class="step-number">3</div>
           <div class="step-content">
             <h4>Copy the prompt</h4>
-            <p>Open <a href="prompts/board.md">board.md</a>, copy everything, paste it into the project instructions.</p>
+            <p>Open <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener">board.md</a>, copy everything, paste it into the project instructions.</p>
           </div>
         </div>
 
@@ -730,29 +785,34 @@
       </div>
       <div class="commands-grid">
 
-        <div class="command-card reveal">
+        <div class="command-card reveal" id="cmd-topic">
           <div class="command-trigger">Present a topic</div>
           <p class="command-desc">All 6 directors automatically weigh in from their perspective.</p>
+          <button class="copy-btn" onclick="copyTemplate('topic-en', this)"><span class="copy-tooltip">Copied!</span>📋 Copy prompt template</button>
         </div>
 
-        <div class="command-card reveal reveal-delay-1">
+        <div class="command-card reveal reveal-delay-1" id="cmd-solo">
           <div class="command-trigger"><code>"I want to talk only with [director]"</code></div>
           <p class="command-desc">Go deeper with a specific director until you say otherwise.</p>
+          <button class="copy-btn" onclick="copyTemplate('solo-en', this)"><span class="copy-tooltip">Copied!</span>📋 Copy prompt template</button>
         </div>
 
-        <div class="command-card reveal reveal-delay-2">
+        <div class="command-card reveal reveal-delay-2" id="cmd-decision">
           <div class="command-trigger"><code>"I need to make a decision"</code></div>
           <p class="command-desc">All 6 vote: in favor, against, or with conditions.</p>
+          <button class="copy-btn" onclick="copyTemplate('decision-en', this)"><span class="copy-tooltip">Copied!</span>📋 Copy prompt template</button>
         </div>
 
-        <div class="command-card reveal reveal-delay-1">
+        <div class="command-card reveal reveal-delay-1" id="cmd-options">
           <div class="command-trigger"><code>"I want to explore options"</code></div>
           <p class="command-desc">Each director proposes a different course of action.</p>
+          <button class="copy-btn" onclick="copyTemplate('options-en', this)"><span class="copy-tooltip">Copied!</span>📋 Copy prompt template</button>
         </div>
 
-        <div class="command-card reveal reveal-delay-2">
+        <div class="command-card reveal reveal-delay-2" id="cmd-keytopic">
           <div class="command-trigger">Upload a Key Topic</div>
           <p class="command-desc">They analyze it like a board session: blind spots, assumptions, risks.</p>
+          <button class="copy-btn" onclick="copyTemplate('keytopic-en', this)"><span class="copy-tooltip">Copied!</span>📋 Copy prompt template</button>
         </div>
 
       </div>
@@ -766,8 +826,8 @@
       <h2 class="section-title reveal">Stop deciding alone</h2>
       <p class="section-subtitle reveal reveal-delay-1">Your next decision is too important for one perspective.</p>
       <div class="cta-buttons reveal reveal-delay-2">
-        <a href="prompts/board.md" class="btn btn-primary">📋 Get your board running today</a>
-        <a href="docs/usage-guide.md" class="btn btn-secondary">📖 Quick start guide</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Get your board running today</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/docs/usage-guide.md" target="_blank" rel="noopener" class="btn btn-secondary">📖 Quick start guide</a>
       </div>
     </div>
   </section>
@@ -776,9 +836,9 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <span>Created by <a href="https://linkedin.com/in/marcosambrosiortisi" target="_blank" rel="noopener">Marcos</a></span>
+        <span>Created by <a href="https://www.linkedin.com/in/marcosambrosi/" target="_blank" rel="noopener">Marcos</a></span>
         <span class="footer-sep">·</span>
-        <a href="https://github.com/marcosambrosiortisi/ai-board" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/mambrosi/ai-board" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
@@ -798,6 +858,106 @@
     });
 
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Copy prompt templates
+    const templates = {
+      'topic-en': `**Situation:** [What's happening? 2-3 sentences.]
+
+**The decision or problem:** [What do you need to resolve or decide?]
+
+**What's at stake:** [What happens if it goes well? What happens if it goes wrong?]
+
+**What I'm leaning toward:** [What are you thinking of doing today?]
+
+**What's holding me back:** [What doubt, fear, or piece of data has you stuck?]`,
+
+      'solo-en': `I want to talk only with [director name].
+
+[Describe your situation or question here.]`,
+
+      'decision-en': `I need to make a decision.
+
+[Describe the decision you're facing and any relevant context.]`,
+
+      'options-en': `I want to explore options.
+
+[Describe the situation you want to explore alternatives for.]`,
+
+      'keytopic-en': `# KEY TOPIC
+
+**MEMBER:**
+**DATE:**
+**MONETARY VALUE:**
+
+---
+
+## THE ISSUE IS: HOW DO I...?
+
+[Write your problem or decision as a question. Be specific.]
+
+---
+
+## MY IDEAL OUTCOME
+*(next 3-6 months)*
+
+1.
+2.
+3.
+
+---
+
+## IT IS IMPORTANT OR SIGNIFICANT BECAUSE:
+
+**MONEY AND TIME:**
+-
+
+**PEOPLE / TEAM:**
+-
+
+**REPUTATION / MARKET:**
+-
+
+**FUTURE:**
+-
+
+---
+
+## RELEVANT INFORMATION:
+
+[Everything the board needs to know to give a good opinion: numbers, context, history, relationships, previous attempts, constraints.]
+
+---
+
+## WHAT I PLAN TO DO:
+
+**SHORT TERM (next 2-4 weeks):**
+-
+
+**MEDIUM TERM (1-3 months):**
+-
+
+**RULED OUT:**
+-
+
+---
+
+## WHERE I NEED HELP:
+
+1.
+2.
+3.`
+    };
+
+    function copyTemplate(key, btn) {
+      const text = templates[key];
+      if (!text) return;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
   </script>
 
 </body>
