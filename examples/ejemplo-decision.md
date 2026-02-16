@@ -21,11 +21,12 @@ Mi competidor más grande rechazó este contrato por la complejidad. Mi equipo a
 
 ## Qué esperar:
 
-El board debería darte 5 perspectivas diferentes sobre este dilema. Prestá atención a:
+El board debería darte 6 perspectivas diferentes sobre este dilema. Prestá atención a:
 
 - **Financiero:** Va a analizar el ROI de la inversión de 80k vs. el ingreso adicional
 - **Comercial:** Va a cuestionar la exclusividad y la concentración de revenue
 - **Operaciones:** Va a alertar sobre la capacidad actual al 85% y el riesgo de estirarse
+- **Personas:** Va a evaluar el impacto de contratar 12 personas y mudar parte del equipo
 - **Abogado del Diablo:** Va a preguntar por qué el competidor grande lo rechazó
 - **Mentor:** Va a preguntar si esto es lo que realmente querés para tu empresa
 

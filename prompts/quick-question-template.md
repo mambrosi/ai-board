@@ -36,4 +36,4 @@ Copy, paste, fill in, done. Short and direct answers are enough — no need to w
 
 - It doesn't have to be perfect. "What's holding me back" can be a gut feeling, a fear, a data point — whatever it is.
 - If you don't know what you're thinking of doing, write "No idea, I need options" — the board works just the same.
-- If you want the board to focus on a specific angle, add at the end: "Start with the Director Financiero" or "Have the Abogado del Diablo tear it apart first."
+- If you want the board to focus on a specific angle, add at the end: "Start with the CFO" or "Have the Devil's Advocate tear it apart first."

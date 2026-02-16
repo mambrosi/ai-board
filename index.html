@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="6 AI directors that challenge every business decision from 6 angles before you commit. Free prompt. 5-minute setup. No sugarcoating.">
+  <title>Your AI Board of Advisors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0B0E11;
+      --surface: #141920;
+      --border: #2A3240;
+      --amber: #E8A838;
+      --amber-dim: rgba(232, 168, 56, 0.12);
+      --amber-glow: rgba(232, 168, 56, 0.08);
+      --white: #F1F1F1;
+      --gray: #9CA3AF;
+      --gray-dim: #6B7280;
+      --gold: #E8A838;
+      --green: #4ECB71;
+      --blue: #5B9CF5;
+      --teal: #4ECBB4;
+      --red: #E85454;
+      --purple: #A87EF5;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --max-width: 1120px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Scroll-triggered animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Section label ─── */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 560px;
+      line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    .hero {
+      position: relative;
+      padding: 140px 0 100px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(232, 168, 56, 0.10) 0%, rgba(232, 168, 56, 0.03) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 18px;
+      background: var(--amber-dim);
+      border: 1px solid rgba(232, 168, 56, 0.2);
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--amber);
+      margin-bottom: 32px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 5.5vw, 60px);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--amber);
+      color: #1a1400;
+      box-shadow: 0 4px 24px rgba(232, 168, 56, 0.20);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 32px rgba(232, 168, 56, 0.30);
+      background: #f0b444;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #4A5568;
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* ═══════════════════════════════════════
+       DIRECTORS / BOARD
+    ═══════════════════════════════════════ */
+    .directors {
+      padding: 80px 0 100px;
+    }
+
+    .directors-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .directors-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .directors-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .director-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .director-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .director-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    .director-card[data-accent="gold"]::before { background: var(--gold); }
+    .director-card[data-accent="green"]::before { background: var(--green); }
+    .director-card[data-accent="blue"]::before { background: var(--blue); }
+    .director-card[data-accent="teal"]::before { background: var(--teal); }
+    .director-card[data-accent="red"]::before { background: var(--red); }
+    .director-card[data-accent="purple"]::before { background: var(--purple); }
+
+    .director-emoji {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .director-role {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .director-nickname {
+      font-style: italic;
+      font-size: 14px;
+      color: var(--gray-dim);
+      margin-bottom: 12px;
+    }
+
+    .director-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .director-question {
+      font-style: italic;
+      font-size: 13.5px;
+      color: var(--gray);
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════
+       SETUP
+    ═══════════════════════════════════════ */
+    .setup {
+      padding: 80px 0 100px;
+    }
+
+    .setup-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .setup-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .steps {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 28px 0;
+      position: relative;
+    }
+
+    .step + .step {
+      border-top: 1px solid var(--border);
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--amber-dim);
+      border: 1px solid rgba(232, 168, 56, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--amber);
+      margin-top: 2px;
+    }
+
+    .step-content h4 {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .step-content a {
+      color: var(--amber);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 168, 56, 0.3);
+      transition: border-color 0.2s;
+    }
+
+    .step-content a:hover {
+      border-color: var(--amber);
+    }
+
+    /* ═══════════════════════════════════════
+       COMMANDS
+    ═══════════════════════════════════════ */
+    .commands {
+      padding: 80px 0 100px;
+    }
+
+    .commands-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .commands-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .commands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+
+    .command-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .command-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.3);
+    }
+
+    .command-trigger {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .command-trigger code {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .command-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════
+       FINAL CTA
+    ═══════════════════════════════════════ */
+    .cta-section {
+      position: relative;
+      padding: 100px 0 120px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(ellipse at center, rgba(232, 168, 56, 0.08) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .cta-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section .section-title {
+      font-size: clamp(30px, 4.5vw, 44px);
+      margin-bottom: 16px;
+    }
+
+    .cta-section .section-subtitle {
+      margin: 0 auto 40px;
+      max-width: 520px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--gray-dim);
+    }
+
+    .footer a {
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-sep {
+      color: var(--border);
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .directors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 100px 0 72px;
+      }
+
+      .directors-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .commands-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-ctas,
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+
+      .setup, .directors, .commands {
+        padding: 60px 0 72px;
+      }
+
+      .cta-section {
+        padding: 72px 0 88px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ LANG TOGGLE ═══ -->
+  <nav style="position:fixed;top:16px;right:24px;z-index:100;">
+    <a href="es/index.html" style="font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--gray);text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);transition:color 0.2s,border-color 0.2s;" onmouseover="this.style.color='var(--white)';this.style.borderColor='#4A5568'" onmouseout="this.style.color='var(--gray)';this.style.borderColor='var(--border)'">ES 🇪🇸</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container">
+      <div class="reveal">
+        <span class="hero-badge">⚡ 5-minute setup — free</span>
+      </div>
+      <h1 class="hero-headline reveal reveal-delay-1">
+        Your board of advisors <em>that won't let you decide alone</em>
+      </h1>
+      <p class="hero-subtitle reveal reveal-delay-2">
+        6 AI directors that stress-test every business decision from finance, revenue, operations, people, risk, and strategy. Before you commit.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="prompts/board.md" class="btn btn-primary">📋 Get the prompt — free</a>
+        <a href="examples/example-decision.md" class="btn btn-secondary">🧪 See it in action</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIRECTORS ═══ -->
+  <section class="directors">
+    <div class="container">
+      <div class="directors-header">
+        <div class="section-label reveal">YOUR BOARD</div>
+        <h2 class="section-title reveal reveal-delay-1">6 perspectives. Zero complacency.</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Each director looks at your problem from a different angle. The magic is in the friction between them.</p>
+      </div>
+      <div class="directors-grid">
+
+        <div class="director-card reveal" data-accent="gold">
+          <div class="director-emoji">💰</div>
+          <div class="director-role">CFO</div>
+          <div class="director-nickname">"The Number"</div>
+          <p class="director-desc">If the numbers don't add up, he says it. Analyzes cash flow, margins, ROI, and the cost of inaction. Zero tolerance for "I'll figure it out later."</p>
+          <p class="director-question">"How much does this cost? And how much does NOT doing it cost?"</p>
+        </div>
+
+        <div class="director-card reveal reveal-delay-1" data-accent="green">
+          <div class="director-emoji">📈</div>
+          <div class="director-role">Head of Revenue</div>
+          <div class="director-nickname">"The Growth"</div>
+          <p class="director-desc">Obsessed with one question: does this bring revenue closer or push it further away? Detects when you're confusing busy with productive.</p>
+          <p class="director-question">"Does this bring us closer to or further from more revenue?"</p>
+        </div>
+
+        <div class="director-card reveal reveal-delay-2" data-accent="blue">
+          <div class="director-emoji">⚙️</div>
+          <div class="director-role">COO</div>
+          <div class="director-nickname">"The Executor"</div>
+          <p class="director-desc">Who executes, with what resources, in what timeframe. Doesn't care how brilliant the idea is if there's no capacity.</p>
+          <p class="director-question">"Do we have the people and processes for this?"</p>
+        </div>
+
+        <div class="director-card reveal" data-accent="teal">
+          <div class="director-emoji">👥</div>
+          <div class="director-role">Head of People</div>
+          <div class="director-nickname">"The Leader"</div>
+          <p class="director-desc">Every decision has a human cost. She sees the one you're ignoring — the burned-out team, the broken trust, the talent walking out the door.</p>
+          <p class="director-question">"Are we building trust or eroding it?"</p>
+        </div>
+
+        <div class="director-card reveal reveal-delay-1" data-accent="red">
+          <div class="director-emoji">🔴</div>
+          <div class="director-role">Devil's Advocate</div>
+          <div class="director-nickname">"The Destroyer"</div>
+          <p class="director-desc">Only job is to find why it will fail. Doesn't build — destroys. And that's exactly what you need.</p>
+          <p class="director-question">"What are you assuming without verifying?"</p>
+        </div>
+
+        <div class="director-card reveal reveal-delay-2" data-accent="purple">
+          <div class="director-emoji">🧭</div>
+          <div class="director-role">Strategic Mentor</div>
+          <div class="director-nickname">"The Mirror"</div>
+          <p class="director-desc">Doesn't look at the problem — looks at you. Asks the questions nobody else dares to ask.</p>
+          <p class="director-question">"Does this bring you closer to the life you want to live?"</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SETUP ═══ -->
+  <section class="setup">
+    <div class="container">
+      <div class="setup-header">
+        <div class="section-label reveal">SETUP</div>
+        <h2 class="section-title reveal reveal-delay-1">Set it up in 5 minutes</h2>
+        <p class="section-subtitle reveal reveal-delay-2">It's a set of instructions you paste into Claude (or ChatGPT). No app to download. No subscription. If you can copy and paste, you can have your board running today.</p>
+      </div>
+      <div class="steps">
+
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>Create a Claude account</h4>
+            <p>Go to claude.ai and sign up. The free plan works perfectly.</p>
+          </div>
+        </div>
+
+        <div class="step reveal reveal-delay-1">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>Create a new project</h4>
+            <p>Projects → New Project → Name it "My Board of Advisors".</p>
+          </div>
+        </div>
+
+        <div class="step reveal reveal-delay-2">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>Copy the prompt</h4>
+            <p>Open <a href="prompts/board.md">board.md</a>, copy everything, paste it into the project instructions.</p>
+          </div>
+        </div>
+
+        <div class="step reveal reveal-delay-3">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h4>Add your context</h4>
+            <p>Fill in the "My Context" section with your company data, or upload your company presentation.</p>
+          </div>
+        </div>
+
+        <div class="step reveal reveal-delay-4">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h4>Make your first query</h4>
+            <p>Present a real decision you're evaluating. The board will respond with 6 different perspectives.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMMANDS ═══ -->
+  <section class="commands">
+    <div class="container">
+      <div class="commands-header">
+        <div class="section-label reveal">HOW TO TALK TO YOUR BOARD</div>
+        <h2 class="section-title reveal reveal-delay-1">How to talk to your board</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Present your topic and let the directors work. Then steer the conversation.</p>
+      </div>
+      <div class="commands-grid">
+
+        <div class="command-card reveal">
+          <div class="command-trigger">Present a topic</div>
+          <p class="command-desc">All 6 directors automatically weigh in from their perspective.</p>
+        </div>
+
+        <div class="command-card reveal reveal-delay-1">
+          <div class="command-trigger"><code>"I want to talk only with [director]"</code></div>
+          <p class="command-desc">Go deeper with a specific director until you say otherwise.</p>
+        </div>
+
+        <div class="command-card reveal reveal-delay-2">
+          <div class="command-trigger"><code>"I need to make a decision"</code></div>
+          <p class="command-desc">All 6 vote: in favor, against, or with conditions.</p>
+        </div>
+
+        <div class="command-card reveal reveal-delay-1">
+          <div class="command-trigger"><code>"I want to explore options"</code></div>
+          <p class="command-desc">Each director proposes a different course of action.</p>
+        </div>
+
+        <div class="command-card reveal reveal-delay-2">
+          <div class="command-trigger">Upload a Key Topic</div>
+          <p class="command-desc">They analyze it like a board session: blind spots, assumptions, risks.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <h2 class="section-title reveal">Stop deciding alone</h2>
+      <p class="section-subtitle reveal reveal-delay-1">Your next decision is too important for one perspective.</p>
+      <div class="cta-buttons reveal reveal-delay-2">
+        <a href="prompts/board.md" class="btn btn-primary">📋 Get your board running today</a>
+        <a href="docs/usage-guide.md" class="btn btn-secondary">📖 Quick start guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span>Created by <a href="https://linkedin.com/in/marcosambrosiortisi" target="_blank" rel="noopener">Marcos</a></span>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/marcosambrosiortisi/ai-board" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+
+</body>
+</html>
