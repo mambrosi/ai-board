@@ -34,6 +34,30 @@ Also works with [ChatGPT](https://chatgpt.com) — paste the prompt into custom 
 
 [Usage guide](docs/usage-guide.md) | [Cheat sheet](docs/cheat-sheet-en.md) | [Example decision](examples/example-decision.md) | [Key topic template](examples/key-topic-template.md) | [Quick question template](prompts/quick-question-template.md)
 
+## 🎁 Bonus: Decision Framework Skills
+
+Skills are free add-ons for Claude that activate specialized decision frameworks with a single phrase — no copy-pasting prompts.
+
+| Skill | Trigger phrase | What it does |
+|-------|---------------|--------------|
+| 🤝 Hire or Promote | "Should I promote or hire?" | Evaluates whether to promote internally or hire externally for a role |
+| 🔄 Kill or Pivot | "This isn't working" | Analyzes whether to kill a project, pivot it, or double down |
+| 💲 Raise or Absorb | "Should I raise prices?" | Decides whether to raise prices or absorb increased costs |
+
+### How to install
+
+1. Download the `.zip` file for each skill you want:
+   - [skill-hire-or-promote.zip](downloads/skill-hire-or-promote.zip)
+   - [skill-kill-or-pivot.zip](downloads/skill-kill-or-pivot.zip)
+   - [skill-raise-or-absorb.zip](downloads/skill-raise-or-absorb.zip)
+2. In Claude, go to **Settings → Capabilities → Skills**
+3. Click **"Upload skill"** and select the `.zip` file
+4. Toggle the skill **ON**
+
+> Requires Claude Pro, Max, Team, or Enterprise with code execution enabled.
+
+See [skills/README.md](skills/README.md) for full details and how to create your own.
+
 ## Author
 
 Created by [Marcos](https://linkedin.com/in/marcosambrosiortisi).
@@ -71,6 +95,30 @@ También funciona con [ChatGPT](https://chatgpt.com) — pegá el prompt en inst
 ## Recursos
 
 [Guía de uso](docs/guia-de-uso.md) | [Cheat sheet](docs/cheat-sheet.md) | [Ejemplo de decisión](examples/ejemplo-decision.md) | [Template tema clave](examples/tema-clave-template.md) | [Template consulta rápida](prompts/consulta-rapida-template.md)
+
+## 🎁 Bonus: Skills de Frameworks de Decisión
+
+Los skills son add-ons gratuitos para Claude que activan frameworks de decisión especializados con una sola frase — sin copiar y pegar prompts.
+
+| Skill | Frase de activación | Qué hace |
+|-------|---------------------|----------|
+| 🤝 Hire or Promote | "Tengo que cubrir un puesto" | Evalúa si promover internamente o contratar externamente |
+| 🔄 Kill or Pivot | "Esto no está funcionando" | Analiza si matar un proyecto, pivotearlo o duplicar la apuesta |
+| 💲 Raise or Absorb | "¿Debería subir precios?" | Decide si subir precios o absorber el aumento de costos |
+
+### Cómo instalar
+
+1. Descargá el archivo `.zip` de cada skill que quieras:
+   - [skill-hire-or-promote.zip](downloads/skill-hire-or-promote.zip)
+   - [skill-kill-or-pivot.zip](downloads/skill-kill-or-pivot.zip)
+   - [skill-raise-or-absorb.zip](downloads/skill-raise-or-absorb.zip)
+2. En Claude, ir a **Settings → Capabilities → Skills**
+3. Click en **"Upload skill"** y seleccionar el archivo `.zip`
+4. Activar el skill con el toggle **ON**
+
+> Requiere Claude Pro, Max, Team o Enterprise con ejecución de código habilitada.
+
+Ver [skills/README.md](skills/README.md) para más detalles y cómo crear los tuyos.
 
 ## Autor
 

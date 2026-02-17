@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="6 directores AI que ponen a prueba cada decisión de negocio desde 6 ángulos antes de que te comprometas. Prompt gratuito. 5 minutos de setup. Sin filtro.">
+  <meta name="description" content="6 directores que ponen a prueba cada decisión de negocio desde finanzas, revenue, operaciones, personas, riesgo y estrategia. Prompt gratuito. 5 minutos de setup.">
   <title>Tu Directorio de Asesores AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -512,6 +512,142 @@
       opacity: 1;
     }
 
+    /* ─── Hero proof ─── */
+    .hero-proof {
+      font-size: 14px;
+      color: var(--gray-dim);
+      margin-bottom: 32px;
+    }
+
+    /* ═══════════════════════════════════════
+       SKILLS / POWER-UPS
+    ═══════════════════════════════════════ */
+    .skills {
+      padding: 80px 0 100px;
+    }
+
+    .skills-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .skills-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--amber);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    .skill-emoji {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .skill-name {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .skill-trigger {
+      font-style: italic;
+      font-size: 14px;
+      color: var(--gray-dim);
+      margin-bottom: 12px;
+    }
+
+    .skill-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .skill-output {
+      font-size: 13px;
+      color: var(--gray-dim);
+      margin-bottom: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .skill-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--amber-dim);
+      border: 1px solid rgba(232, 168, 56, 0.2);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--amber);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .skill-link:hover {
+      background: rgba(232, 168, 56, 0.18);
+      border-color: rgba(232, 168, 56, 0.35);
+    }
+
+    .skills-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--gray-dim);
+      line-height: 1.6;
+    }
+
+    .skills-note a {
+      color: var(--amber);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232, 168, 56, 0.3);
+      transition: border-color 0.2s;
+    }
+
+    .skills-note a:hover {
+      border-color: var(--amber);
+    }
+
     /* ═══════════════════════════════════════
        FINAL CTA
     ═══════════════════════════════════════ */
@@ -592,7 +728,8 @@
        RESPONSIVE
     ═══════════════════════════════════════ */
     @media (max-width: 900px) {
-      .directors-grid {
+      .directors-grid,
+      .skills-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -602,7 +739,8 @@
         padding: 100px 0 72px;
       }
 
-      .directors-grid {
+      .directors-grid,
+      .skills-grid {
         grid-template-columns: 1fr;
       }
 
@@ -622,7 +760,7 @@
         justify-content: center;
       }
 
-      .setup, .directors, .commands {
+      .setup, .directors, .commands, .skills {
         padding: 60px 0 72px;
       }
 
@@ -644,17 +782,18 @@
     <div class="hero-glow"></div>
     <div class="container">
       <div class="reveal">
-        <span class="hero-badge">⚡ Se configura en 5 minutos — gratis</span>
+        <span class="hero-badge">⚡ Gratis para siempre — se configura en 5 minutos</span>
       </div>
       <h1 class="hero-headline reveal reveal-delay-1">
-        Tu directorio de asesores <em>que no te deja decidir solo</em>
+        6 perspectivas sobre cada decisión. <em>Antes de que te comprometas.</em>
       </h1>
       <p class="hero-subtitle reveal reveal-delay-2">
-        6 directores AI que ponen a prueba cada decisión desde finanzas, revenue, operaciones, personas, riesgo y estrategia. Antes de que te comprometas.
+        Un directorio que pone a prueba tus decisiones de negocio desde finanzas, revenue, operaciones, personas, riesgo y estrategia. Gratis. Listo en 5 minutos.
       </p>
+      <p class="hero-proof reveal reveal-delay-2">Open source en GitHub — usado por founders, operadores y consultores</p>
       <div class="hero-ctas reveal reveal-delay-3">
-        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Conseguí el prompt — gratis</a>
-        <a href="https://github.com/mambrosi/ai-board/blob/main/examples/ejemplo-decision.md" target="_blank" rel="noopener" class="btn btn-secondary">🧪 Velo en acción</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Conseguí el prompt — es gratis</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/examples/ejemplo-decision.md" target="_blank" rel="noopener" class="btn btn-secondary">🧪 Mirá una decisión real</a>
       </div>
     </div>
   </section>
@@ -664,8 +803,8 @@
     <div class="container">
       <div class="directors-header">
         <div class="section-label reveal">TU DIRECTORIO</div>
-        <h2 class="section-title reveal reveal-delay-1">6 perspectivas. Cero complacencia.</h2>
-        <p class="section-subtitle reveal reveal-delay-2">Cada director mira tu problema desde un ángulo diferente. La magia está en la fricción entre ellos.</p>
+        <h2 class="section-title reveal reveal-delay-1">6 perspectivas. Cero puntos ciegos.</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Cada director ataca tu problema desde un ángulo diferente. El valor está en la fricción entre ellos.</p>
       </div>
       <div class="directors-grid">
 
@@ -726,8 +865,8 @@
     <div class="container">
       <div class="setup-header">
         <div class="section-label reveal">CONFIGURACIÓN</div>
-        <h2 class="section-title reveal reveal-delay-1">Configuralo en 5 minutos</h2>
-        <p class="section-subtitle reveal reveal-delay-2">Son instrucciones que pegás en Claude (o ChatGPT). No hay app que bajar. No hay suscripción. Si podés copiar y pegar, podés tener tu directorio funcionando hoy.</p>
+        <h2 class="section-title reveal reveal-delay-1">Funcionando en 5 minutos</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Copiá. Pegá. Empezá a decidir mejor. Funciona con Claude o ChatGPT — sin app, sin suscripción.</p>
       </div>
       <div class="steps">
 
@@ -779,8 +918,8 @@
   <section class="commands">
     <div class="container">
       <div class="commands-header">
-        <div class="section-label reveal">CÓMO HABLAR CON TU DIRECTORIO</div>
-        <h2 class="section-title reveal reveal-delay-1">Cómo hablar con tu directorio</h2>
+        <div class="section-label reveal">COMANDOS</div>
+        <h2 class="section-title reveal reveal-delay-1">Decilo. Ellos van a discutirlo.</h2>
         <p class="section-subtitle reveal reveal-delay-2">Planteá tu tema y dejá que los directores trabajen. Después dirigí la conversación.</p>
       </div>
       <div class="commands-grid">
@@ -815,7 +954,55 @@
           <button class="copy-btn" onclick="copyTemplate('keytopic-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
         </div>
 
+        <div class="command-card reveal" id="cmd-forward">
+          <div class="command-trigger"><code>"Proyectalo 90 días"</code></div>
+          <p class="command-desc">Cada director proyecta qué pasa si seguís adelante. Riesgos, logros y puntos ciegos — a 90 días.</p>
+          <button class="copy-btn" onclick="copyTemplate('forward-es', this)"><span class="copy-tooltip">Copiado!</span>📋 Copiar template</button>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ SKILLS / POWER-UPS ═══ -->
+  <section class="skills">
+    <div class="container">
+      <div class="skills-header">
+        <div class="section-label reveal">POWER-UPS</div>
+        <h2 class="section-title reveal reveal-delay-1">Profundizá en las decisiones que no te dejan dormir</h2>
+        <p class="section-subtitle reveal reveal-delay-2">Instalá un skill, describí tu situación, recibí un análisis en PDF con una recomendación clara. Sin vueltas.</p>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-emoji">👤</div>
+          <div class="skill-name">Promover o Contratar</div>
+          <div class="skill-trigger">Decí: "¿Debería promover o contratar de afuera?"</div>
+          <p class="skill-desc">Análisis estructurado de requisitos del rol vs. preparación del candidato, comparación de costos reales, y la pregunta que nadie hace: ¿estás optimizando por comodidad o por el puesto?</p>
+          <div class="skill-output">Genera un PDF de 1-2 páginas con una posición clara</div>
+          <a href="https://github.com/mambrosi/ai-board/tree/main/skills/hire-or-promote" target="_blank" rel="noopener" class="skill-link">→ Más info e instalación</a>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-1">
+          <div class="skill-emoji">⚰️</div>
+          <div class="skill-name">Matar o Pivotar</div>
+          <div class="skill-trigger">Decí: "Esto no está funcionando, ¿lo mato?"</div>
+          <p class="skill-desc">Análisis quirúrgico: la apuesta original vs. la realidad, trampa del costo hundido, tres opciones con trade-offs concretos, y un veredicto. Porque la mayoría mata las cosas demasiado tarde.</p>
+          <div class="skill-output">Genera un PDF de 1-2 páginas con una posición clara</div>
+          <a href="https://github.com/mambrosi/ai-board/tree/main/skills/kill-or-pivot" target="_blank" rel="noopener" class="skill-link">→ Más info e instalación</a>
+        </div>
+
+        <div class="skill-card reveal reveal-delay-2">
+          <div class="skill-emoji">💲</div>
+          <div class="skill-name">Subir Precio o Absorber Costo</div>
+          <div class="skill-trigger">Decí: "Me subieron los costos, ¿subo precios?"</div>
+          <p class="skill-desc">Matemática completa de impacto en margen, tres estrategias de pricing, segmentación de clientes por sensibilidad, y scripts de conversación para cada nivel. Desafía el miedo a perder clientes con datos.</p>
+          <div class="skill-output">Genera un PDF de 1-2 páginas con una posición clara</div>
+          <a href="https://github.com/mambrosi/ai-board/tree/main/skills/raise-or-absorb" target="_blank" rel="noopener" class="skill-link">→ Más info e instalación</a>
+        </div>
+
+      </div>
+      <p class="skills-note reveal">Requiere plan Claude Pro, Max, Team o Enterprise. Instalá en Settings → Capabilities → Skills. <a href="https://github.com/mambrosi/ai-board/tree/main/skills" target="_blank" rel="noopener">Más info</a></p>
     </div>
   </section>
 
@@ -823,10 +1010,10 @@
   <section class="cta-section">
     <div class="cta-glow"></div>
     <div class="container">
-      <h2 class="section-title reveal">Dejá de decidir solo</h2>
-      <p class="section-subtitle reveal reveal-delay-1">Tu próxima decisión es demasiado importante para una sola perspectiva.</p>
+      <h2 class="section-title reveal">Tu próxima satisficing decisión ya se está formando</h2>
+      <p class="section-subtitle reveal reveal-delay-1">Siempre se siente correcta en el momento. Ese es el problema. Conseguí 6 perspectivas antes de comprometerte con la equivocada.</p>
       <div class="cta-buttons reveal reveal-delay-2">
-        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Armá tu directorio hoy</a>
+        <a href="https://github.com/mambrosi/ai-board/blob/main/prompts/board.md?plain=1" target="_blank" rel="noopener" class="btn btn-primary">📋 Armá tu directorio — es gratis</a>
         <a href="https://github.com/mambrosi/ai-board/blob/main/docs/guia-de-uso.md" target="_blank" rel="noopener" class="btn btn-secondary">📖 Guía de inicio rápido</a>
       </div>
     </div>
@@ -882,6 +1069,10 @@
       'options-es': `Quiero explorar opciones.
 
 [Describí la situación para la que querés explorar alternativas.]`,
+
+      'forward-es': `Proyectalo 90 días.
+
+[Describí la decisión o plan que querés poner a prueba en los próximos 90 días.]`,
 
       'keytopic-es': `# TEMA CLAVE
 
